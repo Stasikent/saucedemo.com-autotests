@@ -1,0 +1,10 @@
+
+# Playwright
+node_modules/
+dist/
+*.log
+.vscode/
+.emv
+playwright-report/
+/test-results/
+/tests-examples/
