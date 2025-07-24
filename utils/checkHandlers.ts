@@ -2,12 +2,13 @@
 import { expect, Page } from '@playwright/test';
 import fs from 'fs';
 import { InventoryPage } from '../pages/inventoryPage';
+import { CartPage } from '../pages/cartPage';
 
 export async function handleUserChecks(
   page: Page,
   inventoryPage: InventoryPage,
   login: string,
-  check?: 'images' | 'delay' | 'sortError' | 'visual',
+  check?: 'images' | 'delay' | 'sortError' | 'visual' | 'cart',
   duration?: number
 ) {
   switch (check) {
@@ -47,6 +48,17 @@ export async function handleUserChecks(
       }
       ensureScreenshotDir();
       await page.screenshot({ path: `screenshots/${login}.png`, fullPage: true });
+      break;
+    }
+    case 'cart': {
+      const cartPage = new CartPage(page);
+
+      await inventoryPage.addFirstItemToCart();
+      await cartPage.openCart();
+      await cartPage.proceedToCheckout();
+      await cartPage.fillCheckoutInfo('Test', 'User', '12345');
+      await cartPage.finishCheckout();
+      await cartPage.verifySuccessMessage();
       break;
     }
   }

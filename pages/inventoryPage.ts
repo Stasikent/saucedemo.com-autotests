@@ -59,4 +59,19 @@ export class InventoryPage {
     }
     return titles;
   }
+
+  async addFirstItemToCart() {
+    const firstAddButton = this.page.locator('.inventory_item .btn_inventory').first();
+    await firstAddButton.click();
+  }
+
+  async addItemToCartByIndex(index: number) {
+    const addButton = this.page.locator('.inventory_item .btn_inventory').nth(index);
+    await addButton.click();
+  }
+
+  async removeItemFromCartByIndex(index: number) {
+    const removeButton = this.page.locator('.inventory_item .btn_secondary, .inventory_item .btn_small').nth(index);
+    await removeButton.click();
+  }
 }

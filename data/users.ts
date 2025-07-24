@@ -1,9 +1,7 @@
-// === data/users.ts ===
-
 export type User = {
   login: string;
   type: 'valid' | 'invalid';
-  check?: 'images' | 'delay' | 'sortError' | 'visual';
+  check?: 'images' | 'delay' | 'sortError' | 'visual' | 'cart';
   error?: string;
   description?: string;
 };
@@ -45,5 +43,11 @@ export const users: User[] = [
     type: 'invalid',
     error: LOCKED_OUT_ERROR,
     description: 'Заблокированный пользователь'
+  },
+  {
+    login: 'standard_user',
+    type: 'valid',
+    check: 'cart',
+    description: 'Проверка добавления товара в корзину и оформления заказа'
   }
 ];

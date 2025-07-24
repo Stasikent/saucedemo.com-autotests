@@ -12,5 +12,5 @@
     "skipLibCheck": true,
     "outDir": "dist"
   },
-  "include": ["tests", "pages"]
+  "include": ["tests", "pages", "tests-examples/auth.test2.ts", "tests-examples/auth.test3.ts", "tests-examples/auto.tes1t.ts", "tests-examples/gpt.tes1t.ts", "tests-examples/manual.est.ts"]
 }
