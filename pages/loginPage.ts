@@ -22,4 +22,4 @@ export class LoginPage {
     await this.passwordInput.fill(password);
     await this.loginButton.click();
   }
-}
+} 
