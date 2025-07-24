@@ -2,6 +2,8 @@
 import { test as base } from '@playwright/test';
 import { LoginPage } from '../pages/loginPage';
 import { InventoryPage } from '../pages/inventoryPage';
+import { users } from '../data/users';
+import { handleUserChecks } from '../utils/checkHandlers';
 
 export const test = base.extend<{
   loginPage: LoginPage;
